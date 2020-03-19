@@ -1,28 +1,33 @@
 #primemodule.py
 '''There are only two methods in this module.
 
-The first method determines if a number is prime and returns true or false.
-
-The second method uses the first method to compile a list of prime numbers up to the input and returns the list.
-
 '''
 
 
-def isPrime(n):
-    primeBoolean = True
-    for i in range(2, round(n/2) + 1):
-        if n % i == 0:
-            primeBoolean = False
-            break;
+def is_prime(number):
+    '''This method determines if a number is prime and returns true if it is and false if it isn't.
 
-    return primeBoolean
-    
-def getNPrime(num):
-    primeList = []
-    n = 2
-    while n <= num:
-        if isPrime(n):
-            primeList.append(n)
-        n += 1
-    return primeList
+    '''
+    prime_boolean = True
+    for i in range(2, round(number/2) + 1):
+        if number % i == 0:
+            prime_boolean = False
+            break
 
+    return prime_boolean
+
+def get_n_prime(num):
+    '''This method compiles a list of prime numbers of the input length and returns the list.
+
+    This method uses isPrime to determine if a number is prime.
+
+    '''
+    prime_list = []
+    number = 2
+    i = 0
+    while i < num:
+        if is_prime(number):
+            prime_list.append(number)
+            i += 1
+        number += 1
+    return prime_list
